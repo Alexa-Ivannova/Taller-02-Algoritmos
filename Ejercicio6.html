@@ -1,0 +1,49 @@
+<!-- Hacer un algoritmo que permita pasar de kilogramos a gramos y toneladas. -->
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pasar Kg a gr y toneladas</title>
+</head>
+<body>
+<!-- Sección para ingresar valor en kg -->
+    <div>
+        <label for="ingrese_valor_kg">Ingrese valor en Kg</label>
+        <input type="number" name="ingrese_valor_kg" id="ingrese_valor_kg">
+    </div>
+
+<!-- Sección donde se refleja el cambio-->
+    <div>
+        <p><span id="kilogramos">0</span> kilogramos equivalen a  <span id="gramos">0</span> gramos y a <span id="toneladas">0</span> toneladas</p>
+    </div>
+
+    <script>
+        // Traemos de HTML los elementos a emplear
+        const ingrese_valor_kg = document.getElementById("ingrese_valor_kg")
+        const kilogramos = document.getElementById("kilogramos")
+        const gramos = document.getElementById("gramos")
+        const toneladas = document.getElementById("toneladas")
+
+        // Escuchador para realizar las operaciones requeridas
+        ingrese_valor_kg.addEventListener("change", function (event){
+
+            // Variable donde se guarda el valor de Kg
+            const kg = ingrese_valor_kg.value 
+        
+            // Formulas requeridas
+            const formula_kg_gramos = kg * 1000
+            const formula_kg_toneladas = kg / 1000
+
+            // Remplazar valores en el front
+            kilogramos.textContent = kg
+            gramos.textContent = formula_kg_gramos
+            toneladas.textContent = formula_kg_toneladas
+
+            // Limpiar donde se ingresan los Kg
+            ingrese_valor_kg.value = " "            
+        })
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!-- Calcular el número de pulsaciones que debe tener una persona por cada 10 segundos de ejercicio aeróbico; la fórmula que se aplica cuando el sexo es femenino es:
+
+num. pulsaciones ← (220 - edad)/10
+y si el sexo es masculino:
+num. pulsaciones ← (210 - edad)/10 -->
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Número pulsaciones</title>
+</head>
+
+<body>
+    <!-- Sección para ingresar edad -->
+    <div>
+        <label for="ingrese_edad">Ingrese su edad</label>
+        <input type="number" name="ingrese_edad" id="ingrese_edad">
+    </div>
+
+    <!-- Sección para seleccionar genero -->
+    <div>
+        <label for="seleccione_genero">Seleccione su genero</label>
+        <select name="seleccione_genero" value="" id="seleccione_genero">
+            <option value="Selecciona genero" selected disabled>Selecciona genero</option>
+            <option value="F">Femenino</option>
+            <option value="M">Masculino</option>
+        </select>
+    </div>
+
+    <!--Botón para realizar calculo -->
+    <div>
+        <button id="calcular">Calcular</button>
+    </div>
+
+    <!-- Mostrar número de pulsaciones por cada 10 segs -->
+    <div>
+        <p>Su número de pulsaciones por cada 10 segundos deben ser: <span id="numero_pulsaciones">0</span></p>
+    </div>
+
+    <script>
+        // Id traidos y que se requieren en Js
+        const ingrese_edad = document.getElementById("ingrese_edad")
+        const seleccione_genero = document.getElementById("seleccione_genero")
+        const calcular = document.getElementById("calcular")
+        const numero_pulsaciones = document.getElementById("numero_pulsaciones")
+
+
+        // Variable de operación para calcular  pulsaciones
+        let calcular_pulsaciones
+
+// Escuchador de botón calcular, que captura y ejecuta la formula
+        calcular.addEventListener("click", function (event) {
+        let edad = ingrese_edad.value
+        let genero =seleccione_genero.value
+
+            if (genero === "F") {
+                calcular_pulsaciones = (220 - edad) / 10
+            } else {
+                calcular_pulsaciones = (210 - edad) / 10
+            }
+
+            numero_pulsaciones.textContent = calcular_pulsaciones
+            ingrese_edad.value = ""
+            seleccione_genero.selectedIndex = 0
+        })
+
+    </script>
+
+</body>
+
+</html>

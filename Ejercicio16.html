@@ -1,0 +1,85 @@
+<!-- Un programa con 5 alumnos cada uno con 5 notas, calcular el promedio de sus notas por alumnos y solo muestra los que ganaron. -->
+
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alumnos</title>
+</head>
+
+<body>
+
+    <div>NOTAS DE ALUMNOS</div>
+    <div>
+        <p>ALUMNO 1 = <span id="alumno_1">Notas</span></p>
+        <p>ALUMNO 2 = <span id="alumno_2">Notas</span></p>
+        <p>ALUMNO 3 = <span id="alumno_3">Notas</span></p>
+        <p>ALUMNO 4 = <span id="alumno_4">Notas</span></p>
+        <p>ALUMNO 5 = <span id="alumno_5">Notas</span></p>
+    </div>
+
+    <div>
+        <p>Los alumnos que pasaron son: <span id="alumnos_pasaron"></span></p>
+    </div>
+
+    <div>
+        <button id="calcular">Calcular</button>
+    </div>
+
+    <script>
+        const alumno_1 = document.getElementById("alumno_1")
+        const alumno_2 = document.getElementById("alumno_2")
+        const alumno_3 = document.getElementById("alumno_3")
+        const alumno_4 = document.getElementById("alumno_4")
+        const alumno_5 = document.getElementById("alumno_5")
+        const alumnos_pasaron = document.getElementById("alumnos_pasaron")
+        const calcular = document.getElementById("calcular")
+
+        let array_alumnos_pasaron = []
+
+        function notas_alumo(alumno, notas, nombre_alumno) {
+            let promedio_alumno = 0
+            const PASO = 3
+
+            for (i = 1; i <= 5; i++) {
+                let notas_random = (Math.random() * 5).toFixed(2)
+
+                if (notas_random >= 4.50) {
+                    notas_random = 5
+                }
+
+                notas.push(`(${notas_random})`)
+                promedio_alumno += (notas_random / 5)
+            }
+            notas.push(`el promedio es: ${promedio_alumno.toFixed(2)}`)
+            alumno.textContent = notas
+            if (promedio_alumno >= PASO) {
+                array_alumnos_pasaron.push(nombre_alumno)
+            }
+        }
+
+        calcular.addEventListener("click", function (event) {
+            let notas_alumno_1 = []
+            let notas_alumno_2 = []
+            let notas_alumno_3 = []
+            let notas_alumno_4 = []
+            let notas_alumno_5 = []
+
+            array_alumnos_pasaron = []
+
+            notas_alumo(alumno_1, notas_alumno_1, "Alumno 1")
+            notas_alumo(alumno_2, notas_alumno_2, "Alumno 2")
+            notas_alumo(alumno_3, notas_alumno_3, "Alumno 3")
+            notas_alumo(alumno_4, notas_alumno_4, "Alumno 4")
+            notas_alumo(alumno_5, notas_alumno_5, "Alumno 5")
+
+            alumnos_pasaron.textContent = array_alumnos_pasaron
+        })
+
+    </script>
+
+</body>
+
+</html>

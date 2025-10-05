@@ -1,0 +1,64 @@
+<!-- En un supermercado se hace una promoción, mediante la cual el cliente obtiene un descuento dependiendo de un número que se escoge al azar los numeros deben de estar entre 1 y 10. Si el número escogido es menor que 10 el descuento es del 15% sobre el total de la compra, si es menor o igual a 5 el descuento es del 20%. Obtener cuánto dinero se le descuenta. -->
+
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- Sección para ingresar valor total de compra -->
+    <div>
+        <label for="">Ingrese el valor de su compra: $</label>
+        <input type="number" name="valor_compra" id="valor_compra">
+    </div>
+
+    <!-- Sección de boton que genera número al azar para aplicar descuento -->
+    <div>
+        <p> Presiona y descubre tu <button id="boton_porcentaje_descuento">DESCUENTO</button> </p>
+    </div>
+
+    <!-- Sección para visualizar información número y total con descuento -->
+    <div>
+        <p>Tu número es: <span id="valor_descuento">0</span></p>
+    </div>
+
+    <div>
+        <p>El total de tu compra con el descuento es de: $ <span id="total_con_descuento">0</span></p>
+    </div>
+
+    <script>
+        // Variables traidas del HTML
+        const valor_compra = document.getElementById("valor_compra")
+        const boton_porcentaje_descuento = document.getElementById("boton_porcentaje_descuento")
+        const valor_descuento = document.getElementById("valor_descuento")
+        const total_con_descuento = document.getElementById("total_con_descuento")
+
+        let valor_total_compra = 0
+
+        // Escuchador que genera número aleatorio tras oprimir botón
+        boton_porcentaje_descuento.addEventListener("click", function (event) {
+            let numero_aleatorio = Math.floor(Math.random() * 10) + 1
+
+            valor_total_compra = valor_compra.value
+
+            valor_descuento.textContent = numero_aleatorio
+
+            // Validación y formulas para generar valor total con descuento
+            if (numero_aleatorio <= 5) {
+                total_con_descuento.textContent = valor_total_compra - (valor_total_compra * 0.2)
+            } else {
+                total_con_descuento.textContent = valor_total_compra - (valor_total_compra * 0.15)
+            }
+
+            valor_compra.value = 0
+        }
+        )
+
+    </script>
+</body>
+
+</html>

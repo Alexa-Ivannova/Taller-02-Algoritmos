@@ -1,0 +1,61 @@
+<!-- Diseñar un algoritmo que me permita ingresar un valor inicial y luego un valor final, para luego calcular el valor central de los números. -->
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valor Central</title>
+</head>
+
+<body>
+
+    <div>
+        <label for="valor1">Ingrese valor inicial</label>
+        <input type="number" id="valor1">
+    </div>
+
+    <div>
+        <label for="valor2">Ingrese valor final</label>
+        <input type="number" name="valor2" id="valor2">
+    </div>
+
+    <div>
+        <p>El valor central de los números es <span id="valor_central">0</span></p>
+    </div>
+
+    <div>
+        <button id="calcular">Calcular</button>
+    </div>
+
+    <script>
+
+        const VALOR1 = document.getElementById("valor1")
+        const VALOR2 = document.getElementById("valor2")
+        const VALOR_CENTRAL = document.getElementById("valor_central")
+        const CALCULAR = document.getElementById("calcular")
+
+        CALCULAR.addEventListener("click", function(event){
+            const  num1 = VALOR1.value
+            const num2 = VALOR2.value
+            let val_resta = 0
+            let val_central
+            
+
+            if(num1 > num2){
+                val_resta = num1 - num2
+            }else{
+                val_resta = num2 - num1
+            }
+
+            val_central = val_resta / 2           
+            VALOR_CENTRAL.textContent = val_central
+            VALOR1.value = ""
+            VALOR2.value = ""
+        })
+
+    </script>
+
+</body>
+
+</html>

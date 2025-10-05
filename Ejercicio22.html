@@ -1,0 +1,56 @@
+<!-- Diseñar un algoritmo que calcule los 5 primeros números impares que preceden a un numero N -->
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calcular suma impares</title>
+</head>
+
+<body>
+
+    <div>
+        <label for="numero">Ingrese un número</label>
+        <input type="number" name="numero" id="numero">
+    </div>
+
+    <div>
+        <p>Los 5 primeros números impares que preceden a <span id="num"></span> son: <span id="num_impar"></span></p>
+    </div>
+
+    <div>
+        <button id="calcular">Calcular</button>
+    </div>
+
+    <script>
+        const NUMERO = document.getElementById("numero")
+        const NUM = document.getElementById("num")
+        const NUM_IMPAR = document.getElementById("num_impar")
+        const CALCULAR = document.getElementById("calcular")
+
+        let array_num_impares = []
+        let impar
+
+        CALCULAR.addEventListener("click", function (event) {
+            let numero = Number(NUMERO.value) 
+            let menor_que = numero + 11
+
+            for (let i = numero+1 ; i < menor_que; i++) {
+
+                if (i % 2 != 0) {
+                    impar = i 
+                    array_num_impares.push(impar)
+                }             
+            }
+            
+            NUM.textContent = numero
+            NUM_IMPAR.textContent = array_num_impares
+            NUMERO.value = ""
+            array_num_impares = []
+        })
+
+    </script>
+</body>
+
+</html>

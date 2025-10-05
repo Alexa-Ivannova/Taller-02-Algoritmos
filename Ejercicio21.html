@@ -1,0 +1,47 @@
+<!-- Determinar el promedio de una lista 20 de números positivos. -->
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promedio</title>
+</head>
+<body>
+
+    <div>
+        <h2>PROMEDIO</h2>
+        <p>Determinar el promedio de una lista 20 de números positivos.</p>
+    </div>
+    
+    <div>
+        <p>Los 20 números son: <span id="array_20_num"></span> </p>
+        <p>El promedio es: <span id="promedio"></span></p>
+    </div>
+
+    <div>
+        <button id="calcular">Calcular</button>
+    </div>
+    
+    <script>
+        const ARRAY_20_NUM = document.getElementById("array_20_num")
+        const PROMEDIO = document.getElementById("promedio") 
+        const CALCULAR = document.getElementById("calcular")
+
+        let array_numeros = []
+        let promedio = 0
+        
+        CALCULAR.addEventListener("click", function (event){
+            for(let i = 1; i <= 20; i++){
+                let numero_random = Math.floor(Math.random() * 5)
+                array_numeros.push(numero_random)
+                promedio += numero_random / 20 
+            }
+
+            ARRAY_20_NUM.textContent = array_numeros
+            PROMEDIO.textContent = promedio
+            array_numeros = []
+        })
+
+    </script>
+</body>
+</html>

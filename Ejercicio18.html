@@ -1,0 +1,47 @@
+<!-- Diseñar un algoritmo que intercambie los valores de dos variables numéricas. -->
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div>
+        <label for="numero1">Ingrese número 1</label>
+        <input type="number" name="numero1" id="numero1">
+    </div>
+
+    <div>
+        <label for="numero2">Ingrese número 2</label>
+        <input type="number" name="numero2" id="numero2">
+    </div>
+
+    <div>
+        <p id="cambio_numeros">Aca veras los valores cambiados</p>
+    </div>
+
+    <div>
+        <button id="cambiar">Cambiar</button>
+    </div>
+
+    <script>
+        const NUMERO1 = document.getElementById("numero1")
+        const NUMERO2 = document.getElementById("numero2")
+        const CAMBIO_NUMEROS = document.getElementById("cambio_numeros")
+        const CAMBIAR = document.getElementById("cambiar")
+
+        CAMBIAR.addEventListener("click",function (event){
+
+            CAMBIO_NUMEROS.textContent = `El número1 ahora es ${NUMERO2.value} y el número2 ahora es ${NUMERO1.value}`
+            NUMERO1.value = ""
+            NUMERO2.value = ""
+        })
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,65 @@
+<!-- Un paquete de galletas cuesta $3.500 y contiene 15 galletas, cuánto cuestan X cantidad de galletas de ellas? Elabore un algoritmo para obtener la respuesta. -->
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>valor galletas</title>
+</head>
+
+<body>
+
+    <!-- Titulo con valor y cant galletas -->
+    <div>
+        <h2> Paquete de galletas X15 uidades = $3.500</h2>
+    </div>
+
+    <!-- Sección para ingresar cant de galletas a comprar -->
+    <div>
+        <label for="cantidad_galletas">Ingrese cantidad de galletas a comprar</label>
+        <input type="number" name="cantidad_galletas" id="cantidad_galletas">
+    </div>
+
+    <!-- Respuesta a mostrar -->
+    <div>
+        <p id="mensaje_exitoso"> <span> 0 </span> galletas valen $ <span>0</span></p>
+        <p id="mensaje_error"></p>
+    </div>
+
+    <script>
+        // Traer id de HTML
+        const cantidad_galletas = document.getElementById("cantidad_galletas")
+        const mensaje_error = document.getElementById("mensaje_error")
+        const mensaje_exitoso = document.getElementById("mensaje_exitoso")
+
+
+
+        // Escuchador para ejecutar formula
+        cantidad_galletas.addEventListener("change", function (event) {
+
+            // Variables de formulas y cantidad de galletas
+            const cant_galletas = cantidad_galletas.value
+            const valor_galleta = 3500 / 15
+            const valor_total_galletas = valor_galleta * cant_galletas
+
+            if (cant_galletas > 15 || cant_galletas <= 0) {
+                mensaje_error.textContent = "La cantidad de galletas ingresada, tiene que estar entre 1 y 15"
+                mensaje_exitoso.textContent = ""
+
+            } else {
+                // Remplazar información 
+                mensaje_error.textContent = ""
+                mensaje_exitoso.innerHTML = `<span> ${cant_galletas} </span> galletas valen $ <span> ${valor_total_galletas.toFixed(2)}</span > `
+
+                // Limpiar formulario
+                cantidad_galletas.value = ""
+            }
+        })
+
+    </script>
+
+
+</body>
+
+</html>

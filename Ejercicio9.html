@@ -1,0 +1,100 @@
+<!-- Realizar un programa que cuente de 1 a 200 e imprima en pantalla los números divisibles por 6, y cuando llegue a 200 cuente de forma regresiva hasta 20 e imprima los divisibles por 8. -->
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contador</title>
+</head>
+
+<body>
+
+
+    <div>
+        <h2> CONTADOR</h2>
+    </div>
+
+    <div>
+        <p id="contador_1_a_200"> 1. Contar de 1 a 200</p>
+    </div>
+
+    <div>
+        <p id="divisibles_6"> 2. Mostrar números divisibles en 6 </p>
+    </div>
+
+    <div>
+        <p id="contador_reversa_hasta_20">3. Contar en reversa de 200 a 20</p>
+    </div>
+
+    <div>
+        <p id="divisibles_8"> 4. Mostrar números divisibles en 8 </p>
+
+    </div>
+
+    <div>
+        <button id="ejecutar"> Ejecutar</button>
+    </div>
+
+    <script>
+        // Traer id de HTML
+        const contador_1_a_200 = document.getElementById("contador_1_a_200")
+        const divisibles_6 = document.getElementById("divisibles_6")
+        const contador_reversa_hasta_20 = document.getElementById("contador_reversa_hasta_20")
+        const divisibles_8 = document.getElementById("divisibles_8")
+        const ejecutar = document.getElementById("ejecutar")
+
+
+        // Escuchador para iniciar ejecución de los pasos
+        ejecutar.addEventListener("click", function (event) {
+
+            // Contar de 1 a 200
+            let divisibles_en_6 = []
+            let contar_reverso = ""
+            let divisibles_en_8 = []
+            let contenido_html = ""
+
+            // Contador de 1 a 200
+            for (let i = 1; i <= 200; i++) {
+                // contar.push(i)
+
+                // let to_string = toString(i)
+                contenido_html += i + ","
+
+                if (i % 40 == 0) {
+                    contenido_html += "<br>"
+                    // console.log(to_string)                
+                }
+
+                // Mostrar números divisibles en 6
+                if (i % 6 == 0) {
+                    divisibles_en_6.push(i)
+                    divisibles_6.textContent = divisibles_en_6
+                }
+            }
+
+            contador_1_a_200.innerHTML = contenido_html
+
+
+            // Contador de 200 a 20
+            for (let i = 200; i >= 20; i--) {
+
+                contar_reverso += i + ","
+
+                if (i % 40 == 0) {
+                    contar_reverso += "<br>"
+                }
+
+                // Mostrar números divisibles en 8
+                if (i % 8 == 0) {
+                    divisibles_en_8.push(i)
+                    divisibles_8.textContent = divisibles_en_8
+                }
+            }
+            contador_reversa_hasta_20.innerHTML = contar_reverso
+        })
+    </script>
+
+</body>
+
+</html>

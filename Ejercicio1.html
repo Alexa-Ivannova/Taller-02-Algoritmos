@@ -1,0 +1,80 @@
+<!-- Hacer un algoritmo que imprima el nombre de un producto, clave, precio original y su total con descuento. El descuento lo hace en base a la clave, Si la clave es 01 el descuento es del 10% y si la clave es 02 el descuento en del 20% (sólo existen dos claves). -->
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio1</title>
+</head>
+
+<body>
+    <!-- Sección Nombre del producto -->
+    <div>
+        <label for="nombre_producto">Nombre Producto</label>
+        <input type="text" name="nombre_producto" id="nombre_producto">
+    </div>
+    <div>
+        <h3 id="show_nombre_producto">Agrega un producto</h3>
+    </div>
+
+    <!--Sección para seleccionar descuento  -->
+    <div>
+        <label for="clave">Selecciona el descuento</label>
+        <select name="clave" id="clave">
+            <option value="0.1">01</option>
+            <option value="0.2">02</option>
+        </select>
+    </div>
+
+    <!-- Sección valor producto ingreso manual -->
+    <div>
+        <label for="precio_original">Agrega el precio del producto</label>
+        <input type="text" name="precio_original" id="precio_original">
+    </div>
+
+    <!-- Sección operación descuento producto -->
+    <div>
+        <p>Tu producto <span id="producto_final"></span> con el descueno aplicado queda en:</p>
+        <p>$ <span id="total_descuento">0</span></p>
+    </div>
+    <div>
+        <button id="calcular">Calcular</button>
+    </div>
+
+    <script>
+        // Variables traidas por ID de HTML
+        const nombre_producto = document.getElementById("nombre_producto")
+        const show_nombre_producto = document.getElementById("show_nombre_producto")
+        const clave = document.getElementById("clave")
+        const precio_original = document.getElementById("precio_original")
+        const total_descuento = document.getElementById("total_descuento")
+        const producto_final = document.getElementById("producto_final")
+        const calcular = document.getElementById("calcular")
+
+        // Escuchador para mostrar nombre de producto ingresado
+        nombre_producto.addEventListener("input", function (event) {
+            show_nombre_producto.textContent = event.target.value
+        })
+
+        // Escuchador para realizar operación de descuento según la selección
+        calcular.addEventListener("click", function (event) {
+
+            let clave_select = clave.value
+            let precio_producto = precio_original.value
+
+            let total_con_descuento = precio_producto - (precio_producto * clave_select)
+            total_descuento.textContent = total_con_descuento
+
+        // Limpieza de "formulario" 
+            producto_final.textContent = nombre_producto.value
+            nombre_producto.value = ""
+            precio_original.value = ""
+            show_nombre_producto.textContent = "Agrega un producto"
+        })
+
+
+    </script>
+</body>
+
+</html>

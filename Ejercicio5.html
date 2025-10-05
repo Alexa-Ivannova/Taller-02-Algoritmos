@@ -1,0 +1,45 @@
+<!-- Elabore un algoritmo que lea un número negativo e imprima el número y el positivo del mismo. -->
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cambiador de simbolo</title>
+</head>
+<body>
+    <!-- Sección de ingreso número -->
+    <div>
+<label for="ingrese_numero">Ingrese un número entero</label>
+<input type="number" name="ingrese_numero" id="ingrese_numero">
+    </div>
+
+    <!-- Sección resultado -->
+    <div>
+        <p>Su número es <span id="numero_inicial">0</span> y su contrario es <span id="numero_contrario">0</span></p>
+    </div>
+
+    <script>
+        // Variables traidas de HTML a emplear
+        const ingrese_numero = document.getElementById("ingrese_numero")
+        const numero_inicial = document.getElementById("numero_inicial")
+        const numero_contrario = document.getElementById("numero_contrario")       
+
+        // Escuchador que ejcuta formula para cambiar simbolo
+        ingrese_numero.addEventListener("change", function (event){
+            let numero = ingrese_numero.value 
+            // Formula que cambia el simbolo
+            let cambiar_simbolo = numero * -1
+
+            // Limpiador de formulario 
+            ingrese_numero.value = ""
+
+            // Cambiar valores en el front
+            numero_inicial.textContent = numero
+            numero_contrario.textContent = cambiar_simbolo
+        })
+
+
+
+    </script>
+</body>
+</html>

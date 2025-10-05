@@ -1,0 +1,53 @@
+<!-- Un programa que me capture el salario de un empleado y me realice el descuento de pensión y salud, pero si el salario es superior a 1200000 no le debe descontar. -->
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salario</title>
+</head>
+
+<body>
+    <!-- Sección ingresar salario -->
+    <div>
+        <label for="salario">Ingresar salario</label>
+        <input type="number" name="salario" id="salario">
+    </div>
+
+    <div>
+        <button id="calcular">Calcular</button>
+    </div>
+
+    <div>
+        <p id="salario_real">Acá visualizaras tu respuesta</p>
+    </div>
+
+    <script>
+        const salario = document.getElementById("salario")
+        const calcular = document.getElementById("calcular")
+        const salario_real = document.getElementById("salario_real")
+        
+        calcular.addEventListener("click",function (event){
+            const salario_valor = salario.value
+            const valor_aplicar_descuento = 1200000
+            const descuento_salud_pension = 0.04
+            const salario_con_descuento = salario_valor - (salario_valor * (descuento_salud_pension*2))
+
+            console.log(salario_con_descuento);
+            
+
+            if(salario_valor > valor_aplicar_descuento){
+                salario_real.textContent = "Este salario no se le debe descontar salud y pensión"
+            }else{
+                salario_real.textContent =  `La pensión y salud que equivalen al 4% cada una, restando esto, el salario es de ${salario_con_descuento} `
+            }
+            
+            salario.value = ""
+        })
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,56 @@
+<!-- Si 15 cuadernos cuestan $75000, cuánto cuestan X cantidad de cuadernos?. Elabore un algoritmo para hallar la respuesta correcta. -->
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valor cuadernos</title>
+</head>
+
+<body>
+    <!-- Sección titulo informativo -->
+    <div>
+        <h2>Valor 15 cuadernos $75.000</h2>
+    </div>
+
+    <!-- Sección solicitar cant cuadernos a comprar -->
+    <div>
+        <label for="cantidad_cuadernos">Ingrese cantidad de cuadernos a comprar</label>
+        <input type="number" name="cantidad_cuadernos" id="cantidad_cuadernos">
+    </div>
+
+    <!-- Sección de respuesta -->
+    <div>
+        <p id="mensaje"><span> 0 </span> cuadernos valen $ <span> 0</span></p>
+    </div>
+
+    <script>
+        // Traer de HTML los id a emplear
+        const cantidad_cuadernos = document.getElementById("cantidad_cuadernos")
+        const mensaje = document.getElementById("mensaje")
+
+        // Escuchador para validar cantidad de cuadernos y realizar operación
+        cantidad_cuadernos.addEventListener("change", function (element) {
+
+            // Variables que almacenan cantidad u operaciones
+            const cuadernos = cantidad_cuadernos.value
+            const valor_cuaderno = 75000 / 15
+            const valor_total_cuadernos = valor_cuaderno * cuadernos
+
+            // Validación cantidad de cuadernos
+            if (cuadernos > 15 || cuadernos < 0) {
+                mensaje.textContent = "La cantidad de cuadernos debe ser entre 1 y 15"
+            } else {
+                valor_total_cuadernos
+                mensaje.innerHTML = `<span> ${cuadernos} </span> cuadernos valen $ <span> ${valor_total_cuadernos} </span>`
+            }
+
+            // Limpiar formulario
+            cantidad_cuadernos.value = ""
+
+        })
+    </script>
+</body>
+
+</html>

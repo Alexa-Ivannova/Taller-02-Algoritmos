@@ -1,0 +1,115 @@
+<!-- Mientras a<=1500; contar hasta 1500 e imprimir los números divisibles por 4 y 5 y decir si son pares o impares. -->
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <label for="numero">Ingrese cualquier número </label>
+        <input type="number" name="numero" id="numero">
+    </div>
+
+    <div>
+        <button id="calcular">Calcular</button>
+    </div>
+
+    <!-- sección de respuesta -->
+    <div>
+        <p id="contar_1_a_1500">CONTAR </p>
+        <p> Números Divisibles por 4:<br> <span id="num_div_4"> </span> </p>
+        <p> Números Divisibles por 5:<br> <span id="num_div_5"> </span> </p>
+        <p> Números pares:<br> <span id="num_pares"> </span> </p>
+        <p> Números impares:<br> <span id="num_impares"> </span> </p>
+
+    </div>
+
+
+    <script>
+        // Id llamados del html
+        const numero = document.getElementById("numero")
+        const calcular = document.getElementById("calcular")
+        const contar_1_a_1500 = document.getElementById("contar_1_a_1500")
+        const num_div_4 = document.getElementById("num_div_4")
+        const num_div_5 = document.getElementById("num_div_5")
+        const num_pares = document.getElementById("num_pares")
+        const num_impares = document.getElementById("num_impares")
+
+        // Escuchador
+        calcular.addEventListener("click", function (event) {
+            let num = numero.value
+            let numero_condicion = 1500
+            let contenido_contar = ""
+            let divisibles_entre_4 = ""
+            let divisibles_entre_5 = ""
+            let pares = ""
+            let impares = ""
+
+            if (num <= numero_condicion) {
+
+                // Contar y mostrar respuesta
+                for (let i = 1; i <= numero_condicion; i++) {
+                    // El if se emplea ya que no se esta usando CSS, y se inserta un br cada 35 números para que se visualice el conteo del front
+                    contenido_contar += i + ","
+                    if (i % 35 == 0) {
+                        contenido_contar += "<br>,"
+                    }
+
+                    // Números divisibles y pares entre 4
+                    if (i % 4 == 0) {
+                        // let array_pares = pares.split(",")
+                        divisibles_entre_4 += i + ","
+                        pares += i + ","
+
+                        if (i % 42 == 0) {
+                            divisibles_entre_4 += "<br>,"
+                            pares += "<br>,"
+                        }
+                    }
+
+                    // Números divisibles y pares entre 5
+                    if (i % 5 == 0) {
+                        let array_pares = pares.split(",")
+
+                        divisibles_entre_5 += i + ","
+                        console.log("Aqui", array_pares[array_pares.length - 2]);
+                        if (i == array_pares[array_pares.length - 2]) {
+
+                            continue
+                        }
+
+                        if (i % 2 == 0) {
+                            pares += i + ","
+
+                        } else {
+                            impares += i + ","
+                        }
+
+                        if (i % 42 == 0) {
+                            divisibles_entre_5 += "<br>,"
+                            pares += "<br>,"
+                        }
+                    }
+                }
+                contar_1_a_1500.innerHTML = contenido_contar
+                num_div_4.innerHTML = divisibles_entre_4
+                num_div_5.innerHTML = divisibles_entre_5
+                num_pares.innerHTML = pares
+                num_impares.innerHTML = impares
+            } else {
+                alert("El número es mayoer a 1500")
+            }
+
+        })
+
+
+
+    </script>
+
+</body>
+
+</html>

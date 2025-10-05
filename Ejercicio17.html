@@ -1,0 +1,54 @@
+<!-- Diseñar un algoritmo, con el dividendo y el divisor y que luego me calcule el residuo y el cociente de dicha división. -->
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Divsiones</title>
+</head>
+
+<body>
+    <!-- Sección operaciones -->
+    <div>
+        <label for="dividendo">Dividendo</label>
+        <input type="number" name="dividendo" id="dividendo">
+        <br>
+        <br>
+        <label for="divisor">Divisor</label>
+        <input type="number" name="divisor" id="divisor">
+    </div>
+
+    <div>
+        <p id="resultado">resultado</p>
+    </div>
+
+    <div>
+        <button id="calcular">Calcular</button>
+    </div>
+
+    <script>
+
+        const DIVIDENDO = document.getElementById("dividendo")
+        const DIVISOR = document.getElementById("divisor")
+        const RESULTADO = document.getElementById("resultado")
+        const CALCULAR = document.getElementById("calcular")
+
+        let dividendo = Number(DIVIDENDO.value)
+        let divisor = Number(DIVISOR.value)
+
+
+        CALCULAR.addEventListener("click", function (event) {
+
+            let resultado = dividendo / divisor
+            let resto = dividendo % divisor
+
+            RESULTADO.textContent = `El dividendo es ${DIVIDENDO.value}, el divisor es ${DIVISOR.value}, el residuo es ${resto} y el cociente es ${resultado}`
+            DIVIDENDO.value = ""
+            DIVISOR.value = ""
+        })
+
+    </script>
+</body>
+
+</html>

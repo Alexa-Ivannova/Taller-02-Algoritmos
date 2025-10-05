@@ -1,0 +1,58 @@
+<!-- Un programa que, capture el salario de un empleado, y lo divida por 30 meses del mes, también debe capturar los días trabajados y me debe mostrar el total ganado. -->
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- Sección salario -->
+    <div>
+        <label for="salario">Ingrese su salario</label>
+        <input type="number" name="salario" id="salario">
+    </div>
+
+    <!-- Sección días trabajados -->
+    <div>
+        <label for="dias_trabajados">Ingrese días trabajados</label>
+        <input type="number" name="dias_trabajados" id="dias_trabajados">
+    </div>
+
+    <div>
+        <button id="calcular">Calcular</button>
+    </div>
+
+    <!-- Sección respuesta -->
+    <div>
+        <p id="salario_real"> Aca se va a mostrar lo que usted gano</p>
+    </div>
+</body>
+
+<script>
+    const salario = document.getElementById("salario")
+    const dias_trabajados = document.getElementById("dias_trabajados")
+    const calcular = document.getElementById("calcular")
+    const salario_real = document.getElementById("salario_real")
+    
+    
+    // Escuchador para realizar operaciones
+    calcular.addEventListener("click", function(event){
+        
+        let salario_valor = salario.value 
+        let dias_trabajados_valor = dias_trabajados.value
+        const dias_mes = 30
+        const calculo_salario = ((salario_valor / dias_mes) * dias_trabajados_valor).toFixed(0)
+
+        salario_real.textContent = `El valor de su salario teniendo en cuenta que trabajo ${dias_trabajados_valor} días, es de $${calculo_salario}`
+        
+        console.log(salario_valor);
+        
+        salario.value= ""
+        dias_trabajados.value= ""        
+    })
+</script>
+
+</html>

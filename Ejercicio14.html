@@ -1,0 +1,59 @@
+<!-- Elaborar un algoritmo, que tenga 10 números enteros. El programa debe sumar todos los números que sean múltiplos de 3. -->
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sumar multiplos de 3</title>
+</head>
+
+<body>
+    <div>
+        <h2>Array Numeros:</h2>
+        <p> Los números a emplear son: <span id="arreglo"></span> </p>
+    </div>
+
+    <div>
+        <p>Los números divisibles que son multiplos de 3 son <span id="numeros"></span> <br> La suma de los multiplos de
+            3 es: <span id="suma"></span></p>
+    </div>
+
+    <div>
+        <button id="calcular">Calcular</button>
+    </div>
+
+    <script>
+        const calcular = document.getElementById("calcular")
+        const arreglo = document.getElementById("arreglo")
+        const numeros = document.getElementById("numeros")
+        const suma = document.getElementById("suma")
+        const array = []
+
+
+        for (let i = 1; i <= 10; i++) {
+            let num_random = Math.floor(Math.random() * 50)
+            array.push(num_random)
+        }
+
+        arreglo.textContent = array
+
+        calcular.addEventListener("click", function (event) {
+            let sumar = 0
+            let array_suma = []
+
+            for (let i = 0; i < array.length; i++) {
+
+                let numero = array[i]
+                if (numero % 3 == 0) {
+                    array_suma.push(numero)
+                    sumar += numero
+                }
+            }
+            numeros.textContent = array_suma
+            suma.textContent = sumar
+        })
+    </script>
+</body>
+
+</html>

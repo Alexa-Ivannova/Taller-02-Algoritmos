@@ -1,0 +1,51 @@
+<!-- 20. Se desea calcular independientemente la suma de los números pares e impares comprendidos entre 1 y 50. -->
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sumas</title>
+</head>
+<body>
+
+    <div>
+        <h2>SUMA DE NUM PARES E IMPARES</h2>
+        <p>Calcular independientemente la suma de los números pares e impares comprendidos entre 1 y 50.</p>
+    </div>
+
+    <div>
+        <p>La suma de números pares es <span id="suma_pares"></span></p>
+        <p>La suma de números impares es <span id="suma_impares"></span></p>
+
+    </div>
+
+    <div>
+        <button id="calcular">Calcular</button>
+    </div>
+
+    <script>
+        const SUMA_PARES = document.getElementById("suma_pares")
+        const SUMA_IMPARES = document.getElementById("suma_impares")
+        const CALCULAR = document.getElementById("calcular")
+        let sumar_pares = 0
+        let sumar_impares = 0
+
+        CALCULAR.addEventListener("click", function (event){
+
+            for(let i = 1; i <= 50; i++){
+
+                console.log(i);
+                
+                if(i % 2 == 0){
+                    sumar_pares += i
+                    SUMA_PARES.textContent = sumar_pares                 
+                }else{
+                    sumar_impares += i
+                    SUMA_IMPARES.textContent = sumar_impares
+                }
+            }
+        })
+    </script>
+    
+</body>
+</html>

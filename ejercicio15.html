@@ -1,0 +1,62 @@
+<!-- Mostrar las 30 primeras potencias de 3 y la suma de ellos. -->
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Potencias</title>
+</head>
+
+<body>
+
+    <div>
+        <h2>POTENCIAS</h2>
+        <p>Las primeras 30 potencias de 3 son:</p>
+    </div>
+
+    <div>
+        <p id="potencias"></p>
+        <p>La suma de todas las potencias es <span id="suma_potencias"></span></p>
+    </div>
+
+    <div>
+        <button id="calcular">Calcular</button>
+    </div>
+
+    <script>
+        const potencias = document.getElementById("potencias")
+        const suma_potencias = document.getElementById("suma_potencias")
+        const calcular = document.getElementById("calcular")
+
+        calcular.addEventListener("click", function (event) {
+
+            const potencia_de_3 = 3
+            let resultado_potencia = 0
+            let array_potencias_de_3 = []
+            let suma_resultado_potencias = 0
+            let potencias_3 = ""
+
+            for (let i = 1; i <= 30; i++) {
+
+                resultado_potencia = potencia_de_3 ** i
+                array_potencias_de_3.push(resultado_potencia)
+                suma_resultado_potencias += resultado_potencia
+            }
+
+            for (i = 0; i < array_potencias_de_3.length; i++){
+
+                potencias_3 += array_potencias_de_3[i] + "," 
+                if(i % 5 == 0){
+                    potencias_3 += "<br>"                    
+                }
+            }
+
+            potencias.innerHTML = potencias_3
+            suma_potencias.textContent = suma_resultado_potencias
+        })
+
+    </script>
+</body>
+
+</html>

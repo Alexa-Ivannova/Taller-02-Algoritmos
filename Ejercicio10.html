@@ -1,0 +1,149 @@
+<!-- Realizar un programa que capture el nombre de dos personas y las fechas de nacimiento con cada campo por separado día, mes y año y calcule la edad de dos personas diferentes y diga cuál de ellos es mayor. -->
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quien es mayor</title>
+</head>
+
+<body>
+    <!-- Sección persona 1 -->
+    <div>
+        <h2>PERSONA 1</h3>
+    </div>
+
+    <div>
+        <label for="nombre_p1">Ingrese nombre</label>
+        <input type="text" name="nombre_p1" id="nombre_p1">
+
+    </div>
+
+    <div>
+        <h3>Fecha de nacimiento persona 1</h3>
+        <label for="dia_p1">Ingrese día</label>
+        <input type="number" name="dia_p1" id="dia_p1">
+
+        <label for="mes_p1">Ingrese mes</label>
+        <input type="number" name="mes_p1" id="mes_p1">
+
+        <label for="año_p1">Ingrese año</label>
+        <input type="number" name="año_p1" id="año_p1">
+
+    </div>
+
+    <!-- Sección persona 2 -->
+    <div>
+        <h2>PERSONA 2</h3>
+    </div>
+
+    <div>
+        <label for="nombre_p2">Ingrese nombre</label>
+        <input type="text" name="nombre_p2" id="nombre_p2">
+    </div>
+
+    <div>
+        <h3>Fecha de nacimiento persona 2</h3>
+        <label for="dia_p2">Ingrese día</label>
+        <input type="number" name="dia_p2" id="dia_p2">
+
+        <label for="mes_p2">Ingrese mes</label>
+        <input type="number" name="mes_p2" id="mes_p2">
+
+        <label for="año_p2">Ingrese año</label>
+        <input type="number" name="año_p2" id="año_p2">
+    </div>
+
+    <!-- Sección de ejecución y respuesta -->
+    <div>
+        <button id="calcular">Calcular</button>
+    </div>
+
+    <div>
+        <p id="datos_persona1"> Datos persona 1 </p>
+        <p id="datos_persona2"> Datos persona 2 </p>
+        <p id="quien_es_mayor"> Quien es mayor persona 1 o persona 2</p>
+    </div>
+
+
+    <script>
+        // Traemos todos los id a emplear
+        const nombre_p1 = document.getElementById("nombre_p1")
+        const dia_p1 = document.getElementById("dia_p1")
+        const mes_p1 = document.getElementById("mes_p1")
+        const año_p1 = document.getElementById("año_p1")
+        const nombre_p2 = document.getElementById("nombre_p2")
+        const dia_p2 = document.getElementById("dia_p2")
+        const mes_p2 = document.getElementById("mes_p2")
+        const año_p2 = document.getElementById("año_p2")
+        const calcular = document.getElementById("calcular")
+        const datos_persona1 = document.getElementById("datos_persona1")
+        const datos_persona2 = document.getElementById("datos_persona2")
+        const quien_es_mayor = document.getElementById("quien_es_mayor")
+
+
+        // Escuchador para determinar edades y quien es mayor.
+        calcular.addEventListener("click", function (event) {
+
+            // Variables datos personas 
+            const nombre1 = nombre_p1.value
+            const dia1 = dia_p1.value
+            const mes1 = mes_p1.value
+            const valor_año_p1 = año_p1.value
+            const nombre2 = nombre_p2.value
+            const dia2 = dia_p2.value
+            const mes2 = mes_p2.value
+            const valor_año_p2 = año_p2.value
+            const fecha_actual = new Date()
+            const año_actual = fecha_actual.getFullYear()
+            // Variables para calcular edades personas
+            const edad_p1 = año_actual - valor_año_p1
+            const edad_p2 = año_actual - valor_año_p2
+
+            // Validar que ningun campo quede en blanco
+            if (nombre1 == "" || dia1 == "" || mes1 == "" || valor_año_p1==""||nombre2 == "" || dia2 == "" || mes2 == "" || valor_año_p2==""){
+                alert("Ningun campo puede quedar vacio")
+            }
+            
+
+                // Validar que el año de nacimiento de las personas no sea mayor al año actual
+                if (valor_año_p1 > año_actual || valor_año_p2 > año_actual) {
+                    alert("El año de nacimiento no puede ser superior a 2025")
+                }
+
+            // Ingresar datos persona 1 en front
+            datos_persona1.textContent = `${nombre1} tiene ${edad_p1} años`
+            // Ingresar datos persona 2 en front
+            datos_persona2.textContent = `${nombre2} tiene ${edad_p2} años`
+
+            // Determinar quien es mayor
+            if (edad_p1 > edad_p2) {
+                quien_es_mayor.textContent = `${nombre1} tiene ${edad_p1} y es mayor`
+            } else if (edad_p1 == edad_p2) {
+                quien_es_mayor.textContent = "Ambos tienen la misma edad"
+
+            } else {
+                quien_es_mayor.textContent = `${nombre2} tiene ${edad_p2} y es mayor`
+            }
+
+            // Limpiar formulario
+            nombre_p1.value = ""
+            dia_p1.value = ""
+            mes_p1.value = ""
+            año_p1.value = ""
+            nombre_p2.value = ""
+            dia_p2.value = ""
+            mes_p2.value = ""
+            año_p2.value = ""
+
+
+
+        })
+
+
+    </script>
+
+</body>
+
+</html>
