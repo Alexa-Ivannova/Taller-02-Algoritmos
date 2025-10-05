@@ -1,0 +1,45 @@
+# 📝 Ejercicios de Algoritmos
+
+Este repositorio contiene la resolución de un **cuestionario de 23 ejercicios de algoritmos**.  
+Los ejercicios fueron desarrollados en **JavaScript** como práctica para fortalecer la lógica de programación, el uso de condicionales, ciclos y operaciones matemáticas.
+
+---
+
+## 📚 Ejercicios incluidos
+
+1. Calcular el total con descuento de un producto según su clave (01 → 10%, 02 → 20%).  
+2. Calcular el total a pagar por camisas con descuentos dependiendo de la cantidad.  
+3. Descuento en supermercado según un número aleatorio entre 1 y 10.  
+4. Calcular pulsaciones por cada 10 segundos de ejercicio según sexo y edad.  
+5. Leer un número negativo e imprimir su valor positivo.  
+6. Conversión de kilogramos a gramos y toneladas.  
+7. Calcular el costo de **X** cantidad de galletas (paquete de 15 = $3.500).  
+8. Calcular el costo de **X** cantidad de cuadernos (15 = $75.000).  
+9. Contar de 1 a 200 mostrando los divisibles por 6 y luego de 200 a 20 regresivo mostrando divisibles por 8.  
+10. Capturar datos de dos personas, calcular sus edades y mostrar quién es mayor.  
+11. Capturar salario de un empleado y aplicar descuentos de pensión y salud si corresponde.  
+12. Calcular el salario proporcional según días trabajados.  
+13. Imprimir de 1 a 1500 los números divisibles por 4 o 5 e indicar si son pares o impares.  
+14. Sumar los números múltiplos de 3 en un arreglo de 10 números.  
+15. Mostrar las 30 primeras potencias de 3 y su suma.  
+16. Promedio de 5 notas de 5 alumnos y mostrar quiénes aprobaron.  
+17. Calcular cociente y residuo de una división.  
+18. Intercambiar valores de dos variables.  
+19. Calcular el valor central entre un número inicial y un número final.  
+20. Sumar números pares e impares entre 1 y 50 de manera independiente.  
+21. Calcular el promedio de 20 números positivos.  
+22. Mostrar los 5 números impares que preceden a un número **N**.  
+23. Mostrar si los 5 primeros números impares a partir de 10 son múltiplos de 3.  
+
+---
+
+## 🛠 Tecnologías utilizadas
+- **JavaScript**    
+- **Git & GitHub**  
+
+---
+
+## 🚀 Cómo ejecutar
+1. Clona este repositorio:  
+   ```bash
+   git clone https://github.com/Alexa-Ivannova/Taller-02-Algoritmos
